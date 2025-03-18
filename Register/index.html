@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Register</title>
+    <link
+      rel="stylesheet"
+      href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"
+    />
+    <meta charset="UTF-8" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="form.js"></script>
+    <!-- เรียกใช้ไฟล์ CSS ของ SweetAlert2 -->
+    <script src="
+  https://cdn.jsdelivr.net/npm/sweetalert2@11.10.3/dist/sweetalert2.all.min.js
+  "></script>
+    <link
+      href="
+  https://cdn.jsdelivr.net/npm/sweetalert2@11.10.3/dist/sweetalert2.min.css
+  "
+      rel="stylesheet"
+    />
+    <!-- เรียกใช้ไฟล์ CSS ของ SweetAlert2 -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Prompt:wght@100;200;300;400;500&display=swap");
+
+      * {
+        --font-family: "Prompt", sans-serif;
+        --backgroundColor: #d6eaf8;
+        font-family: var(--font-family);
+      }
+      .box-form {
+        width: 600px;
+        margin: 0 auto;
+        border: 1px solid black;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #fff;
+      }
+      .input-group {
+        margin-bottom: 20px;
+      }
+      #postalCode {
+        width: 200px;
+      }
+      #province,
+      #district,
+      #subdistrict {
+        width: 350px;
+      }
+      h1{
+        font-family: "Prompt", sans-serif;
+      }
+      body {
+        background-color: var(--backgroundColor);
+      }
+      /* CSS เพื่อปรับแต่งขนาดของ Alert โดยตรง */
+      .swal2-popup {
+        width: 500px; /* กำหนดความกว้างของ Alert */
+        height: 300px; /* กำหนดความสูงของ Alert */
+      }
+
+      .swal2-popup .swal2-title {
+        font-size: 45px; /* กำหนดขนาดฟ้อนสำหรับชื่อหัวข้อ */
+      }
+
+      .swal2-popup .swal2-content {
+        font-size: 35px; /* กำหนดขนาดฟ้อนสำหรับเนื้อหา */
+      }
+      .swal2-popup .swal2-content {
+        font-size: 35px; /* กำหนดขนาดฟ้อนสำหรับเนื้อหา */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box-form">
+      <p style="text-align: center">
+        <img
+          src="  https://cdn-icons-png.flaticon.com/512/2921/2921147.png "
+          alt="..."
+          class="img ml-5"
+          style="width: 200px; height: 200px"
+        />
+      </p>
+      <h1 style="text-align: center">ลงทะเบียนเข้าสู่ระบบ</h1>
+      <form action="process.php" method="POST">
+        <div class="row"></div>
+        <div id="username-group" class="form-group">
+          <label for="username">ชื่อผู้ใช้</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            name="username"
+            placeholder="username"
+          />
+        </div>
+
+        <div id="password-group" class="form-group">
+          <label for="password">รหัสผ่าน</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            placeholder="password"
+          />
+        </div>
+        <div id="fname-group" class="form-group">
+          <label for="fname">ชื่อ</label>
+          <input
+            type="text"
+            class="form-control"
+            id="fname"
+            name="fname"
+            placeholder="fname"
+          />
+        </div>
+        <div id="lname-group" class="form-group">
+          <label for="lname">นามสกุล</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lname"
+            name="lname"
+            placeholder="lname"
+          />
+        </div>
+
+        <div id="email-group" class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="email@example.com"
+          />
+        </div>
+
+        <div id="phone-group" class="form-group">
+          <label for="phone">เบอร์มือถือ</label>
+          <input
+            type="text"
+            class="form-control"
+            id="phone"
+            name="phone"
+            placeholder="number phone"
+          />
+        </div>
+        <div class="App">
+          <div class="input-group" id="province-group">
+            <div class="input-group-prepend">
+              <span for="province" class="input-group-text">จังหวัด:</span>
+            </div>
+            <select
+              id="province"
+              onchange="getProvince(this.value)"
+              class="form-control"
+            >
+              <option value="" selected>Select ...</option>
+            </select>
+          </div>
+          <div class="input-group" id="district-group">
+            <div class="input-group-prepend">
+              <span for="district" class="input-group-text">อำเภอ:</span>
+            </div>
+            <select
+              id="district"
+              onchange="getDistrict(this.value)"
+              class="form-control"
+            >
+              <option value="" selected>Select ...</option>
+            </select>
+          </div>
+          <div class="input-group" id="subdistrict-group">
+            <div class="input-group-prepend">
+              <span for="subdistrict" class="input-group-text">ตำบล:</span>
+            </div>
+            <select
+              id="subdistrict"
+              class="form-control"
+              onchange="getTambon(this.value)"
+            >
+              <option value="" selected>Select ...</option>
+            </select>
+          </div>
+        </div>
+        <div id="postalCode-group" class="form-group">
+          <label for="postalCode">รหัสไปรษณีย์</label>
+          <input
+            type="text"
+            class="form-control"
+            id="postalCode"
+            name="postalCode"
+            placeholder="postalCode"
+          />
+        </div>
+        <div class="input-group" id="houseNumber-group">
+          <textarea
+            name="houseNumber"
+            class="form-control"
+            id="houseNumber"
+            cols="100 "
+            rows="2"
+            placeholder="บ้านเลขที่,ซอย,หมู่,ถนน"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">สมัครสมาชิก</button>
+        <button
+          type="button"
+          onclick="window.history.back()"
+          class="btn btn-secondary"
+        >
+          ย้อนกลับ
+        </button>
+      </form>
+    </div>
+    <script>
+      let provinces = [];
+      let amphures = [];
+      let tambons = [];
+
+      function populateDropdown(element, data, labelField, valueField) {
+        element.innerHTML = "";
+        const defaultOption = document.createElement("option");
+        defaultOption.text = "Select ...";
+        defaultOption.value = "";
+        element.appendChild(defaultOption);
+
+        data.forEach((item) => {
+          const option = document.createElement("option");
+          option.text = `${item.name_th} - ${item.name_en}`;
+          option.value = item[valueField];
+          element.appendChild(option);
+        });
+      }
+
+      function getProvince(provinceId) {
+        const selectedProvince = provinces.find(
+          (province) => province.id === parseInt(provinceId)
+        );
+        if (selectedProvince) {
+          amphures = selectedProvince.amphure;
+          populateDropdown(
+            document.getElementById("district"),
+            amphures,
+            "name_th",
+            "id"
+          );
+        }
+      }
+
+      function getDistrict(amphureId) {
+        const selectedAmphure = amphures.find(
+          (amphure) => amphure.id === parseInt(amphureId)
+        );
+        if (selectedAmphure) {
+          tambons = selectedAmphure.tambon;
+          populateDropdown(
+            document.getElementById("subdistrict"),
+            tambons,
+            "name_th",
+            "id"
+          );
+        }
+      }
+
+      function getTambon(TambonId) {
+        const selectTambon = tambons.find(
+          (tambon) => tambon.id === parseInt(TambonId)
+        );
+        if (selectTambon) {
+        }
+      }
+
+      // เรียกใช้งานข้อมูลจังหวัดตอนโหลดเพจ
+      window.onload = function () {
+        fetch(
+          "https://raw.githubusercontent.com/kongvut/thai-province-data/master/api_province_with_amphure_tambon.json"
+        )
+          .then((response) => response.json())
+          .then((result) => {
+            provinces = result;
+            // console.log(provinces);
+            const provinceDropdown = document.getElementById("province");
+            populateDropdown(provinceDropdown, provinces, "name_th", "id");
+          });
+      };
+    </script>
+  </body>
+</html>
