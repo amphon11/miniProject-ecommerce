@@ -1,0 +1,468 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    font-family: 'Noto Sans Thai', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
+    
+}
+:root{
+  --bg-color:#0f1015;
+  --main-color:#202430;
+  --btn-color:#00d25b;
+}
+
+.custum-file-upload {
+  position: relative;
+  height: 200px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  gap: 20px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  
+  background-color: #212121;
+  padding: 1.5rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 35px 35px -48px #e8e8e8
+}
+
+.custum-file-upload .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custum-file-upload .icon svg {
+  height: 80px;
+  fill: #e8e8e8;
+}
+
+.custum-file-upload .text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custum-file-upload .text span {
+  font-weight: 400;
+  color: #e8e8e8;
+}
+
+.custum-file-upload input {
+  display: none;
+}
+.Add-artist-popup img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* data table */
+
+table.dataTable td.dataTables_empty {
+  text-align: center;
+  padding: 50px 0;
+  font-size: 30px;
+
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 1.5em;
+  padding: 0.5em 1em;
+  margin-left: 2px;
+  text-align: center;
+  text-decoration: none !important;
+  cursor: pointer;
+  color: #333 !important;
+  border: 1px solid transparent;
+  border-radius: 2px;
+}
+
+/* ------------------------------------------------------------------- */
+/* ###########************[ index page ]***********################## */
+/* ------------------------------------------------------------------- */
+.box-left{
+  background-color: var(--main-color);
+  border: 1px solid black;
+}
+.box-nav{
+  position: sticky;
+  top: 0;
+  padding-top: 20px;
+  padding-right: 20px;
+  color: #fff;
+  /* border: 1px solid #DC3543; */
+}
+.box-nav a{
+  color: #6c7293 ;
+}
+.menu-title{
+  font-size: 40px;
+  color: #fff;
+  padding: 20px;
+}
+#menu .nav-item .nav-link{
+  color: #6c7293 ;
+}
+#menu .nav-item{
+  padding: 4px 20px;
+  /* background-color: #0f1015; */
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  font-size: 22px;
+}
+#menu .nav-item:hover{
+  background-color: #0f1015;
+}
+#menu .nav-item:hover .nav-link{
+  color: #fff;
+}
+#menu .nav-item.active{
+  background-color: #0f1015;
+  border-left: 4px solid #0090e7;
+}
+#menu .nav-item.active .nav-link{
+  color: #fff;
+}
+.dropdown-menu{
+  background-color: #191c24 !important;
+  border: 1px solid #6c7293 !important;
+}
+.dropdown-menu a:hover{
+  background-color: #0f1015   ;
+  color: #fff;
+}
+
+/* ------------------------------------------------------------------- */
+/* ###########************[ index page ]***********################## */
+/* ------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------- */
+/* ###########************[ add preview ]***********################## */
+/* ------------------------------------------------------------------- */
+.box-preview-image{
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.box-preview-image .card-image{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid #ddd;
+  background-color: #ddd;
+  padding: 10px;
+  width: 320px;
+}
+.box-preview-image .card-image .title{
+  text-align: center;
+  font-size: 20px;
+}
+.box-preview-image .card-image input[type="file"]{
+  display: none;
+}
+.box-preview-image .card-image .image-show{
+  width: 260px;
+  height: 240px;
+  background-color:black;
+  border-radius: 5px;
+  position: relative;
+
+}
+.box-preview-image .card-image .image-show img{
+  width: 100%;
+  max-height: 100%;
+  border-radius: 5px;
+  border: 1px dashed black;
+}
+.box-preview-image .card-image .image-name{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.box-preview-image .card-image .image-name .image-select{
+  margin: 0;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background-color: #0d6efd;
+  height: 35px;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+}
+.box-preview-image .card-image .image-name .tag_name{
+  border: 1px solid #0d6efd;
+  background-color: #fff;
+  margin-top: 16px;
+  height: 35px;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.box-preview-image .card-image .image-name .image-select:hover {
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, .5);
+}
+.label1{
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: #e8e8e8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+.show-exits-image{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.show-exits-image .box-image{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.show-exits-image .box-image img{
+  width: 200px;
+  border: 1px solid #ddd;
+}
+/* ------------------------------------------------------------------- */
+/* ###########************[ add preview ]***********################## */
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+/* ###########************[ edit brand ]***********################## */
+/* ------------------------------------------------------------------- */
+.from1{
+  position: relative;
+}
+.btn_close{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: red;
+  font-size: 20px;
+}
+.box-edit-type{
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  padding: 20px 40px;
+  border: 1px solid black;
+  border-radius: 10px;
+  top: 40%;
+  left: 35%;
+}
+.box-edit-type.active{
+  display: block;
+}
+.box-edit-brand{
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  top: 40%;
+  left: 35%;
+}
+.box-edit-brand.active{
+  display: block;
+}
+.box-edit-brand form{ 
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  background-color: #fff;
+  
+}
+/* ------------------------------------------------------------------- */
+/* ###########************[ edit brand  ]***********################## */
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+/* ###########************[ home ]***********################## */
+/* ------------------------------------------------------------------- */
+.row-btn{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+}
+.btn-edit,
+.btn-remove,
+.btn-add-img{
+  position: relative;
+}
+.btn-edit .tool-tip{
+  display: none;
+  position: absolute;
+  top: -40px;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #FFC107;
+  color: #FFC107;
+}
+.btn-remove .tool-tip{
+  display: none;
+  position: absolute;
+  top: -40px;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #DC3543;
+  color: #DC3543;
+}
+.btn-add-img .tool-tip{
+  display: none;
+  position: absolute;
+  top: -40px;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #0d6efd;
+  color: #0d6efd;
+  width: 200px;
+  left: -100px;
+}
+.btn-edit:hover .tool-tip,
+.btn-remove:hover .tool-tip,
+.btn-add-img:hover .tool-tip{
+  display: block;
+}
+
+
+/* ------------------------------------------------------------------- */
+/* ###########************[ home  ]***********################## */
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+/* ###########************[ page brand  ]***********################## */
+/* ------------------------------------------------------------------- */
+#table_brand{
+  position: relative;
+}
+#table_brand thead tr{
+  background-color: var(--main-color);
+  color: #fff;
+}
+#table_type thead tr{
+  background-color: var(--main-color);
+  color: #fff;
+}
+/* ------------------------------------------------------------------- */
+/* ###########************[ page brand  ]***********################## */
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+/* ###########************[ page order_list  ]***********################## */
+/* ------------------------------------------------------------------- */
+
+.box-order-product{
+  display: none;
+  top:40%;
+  left: 25%;
+  z-index: 9000;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid black;
+  padding: 40px;
+  width: fit-content;
+  border-radius: 10px;
+}
+.box-order-product.active{
+  display: block;
+}
+.box-order-product .thead,.tbody{
+  display: flex;
+  gap: 1px;
+}
+.box-order-product .thead .col1{
+  background-color: var(--main-color);
+  color: #fff;
+  padding: 10px;
+}
+.box-order-product .thead .col2{
+  background-color: var(--main-color);
+  color: #fff;
+  padding: 10px;
+}
+.box-order-product .thead .col3{
+  background-color: var(--main-color);
+  color: #fff;
+  padding: 10px;
+}
+.box-order-product .tbody .col1{
+  background-color: #fff;
+  padding: 5px;
+}
+.box-order-product .tbody .col2{
+  background-color: #fff;
+  padding: 5px;
+}
+.box-order-product .tbody .col3{
+  background-color: #fff;
+  padding: 5px;
+}
+.box-order-product .thead .col1,
+.box-order-product .tbody .col1{
+  width: 400px;
+  text-align: center;
+  /* background-color: #00d25b; */
+}
+.box-order-product .tbody{
+  border: 1px solid #ddd;
+}
+.box-order-product .thead .col2,
+.box-order-product .tbody .col2{
+  width: 120px;
+  text-align: center;
+  /* background-color: #00d25b; */
+}
+.view_order_product{
+  background-color: var(--bg-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+.view_order_product:hover{
+  border: 2px solid #0090e7;
+}
+.td-amount p{
+  margin: 0;
+}
+.close_amount_order{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  color: red;
+  border-radius:20px;
+  font-size: 20px;
+}
+/* ------------------------------------------------------------------- */
+/* ###########************[ page order_list  ]***********################## */
+/* ------------------------------------------------------------------- */
+
+
+
+
+
+
